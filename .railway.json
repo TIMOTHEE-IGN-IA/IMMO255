@@ -1,9 +1,6 @@
 {
   "build": {
-    "builder": "paketobuildpacks/builder:jammy",
-    "buildpacks": [
-      "heroku/php@latest"
-    ]
+    "builder": "paketo/buildpacks"
   },
-  "start": "php -S 0.0.0.0:$PORT -t public"
+  "start": "heroku-php-apache2"
 }
