@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# 1. Si la requête correspond à un fichier ou dossier réel dans /public → on le sert
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ public/$1 [L]
+
+# 2. Sinon, tout passe par public/index.php (URL propres)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ public/index.php [QSA,L]
